@@ -33,6 +33,28 @@ class RegistrationController extends Controller
 
 
 }
+     public function login()
+    {
+        return view('authentication.login');
+    }
+
+    public function loginpost(Request $request)
+    {
+       $credentials = [
+    'email'    => $request->email,
+    'password' => $request->password,
+];
+
+               if (Sentinel::authenticate($credentials))
+            {
+                // User is logged in and assigned to the `$user` variable.
+                echo "logged";
+            }else{
+                echo "string";
+            }
+
+
+    }
 
 
 }
